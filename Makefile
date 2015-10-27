@@ -17,7 +17,7 @@ buildclean:
 testclean:
 	${MAKE} -f greeter_test.mk clean
 
-DEB_COMPONENT := greeter 
+DEB_COMPONENT := greeter
 DEB_MAJOR_VERSION := 1.0${DEB_VERSION_QUALIFIER}
 DEB_NAMES += greeter-as greeter-as-dbg
 
