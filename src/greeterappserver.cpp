@@ -52,29 +52,18 @@ AppServerTsx* GreeterAppServer::get_app_tsx(
   return new GreeterAppServerTsx(helper);
 }
 
-GreeterAppServerTsx::GreeterAppServerTsx(AppServerTsxHelper* helper) :
-  AppServerTsx(helper)
-{
-}
-
-/// Destructor
-GreeterAppServerTsx::~GreeterAppServerTsx()
-{
-}
-
 void GreeterAppServerTsx::on_initial_request(pjsip_msg* req)
 {
   TRC_DEBUG("Greeter - process request %p", req);
-  pj_str_t hname;
-  pj_str_t hvalue;
 
-  pj_cstr(&hname, "Subject");
-  pj_cstr(&hvalue, "Hello world!");
-
+  pj_str_t hname = pj_str((char*)"Subject");
+  pj_str_t hvalue = pj_str((char*)"Hello world!");
   pjsip_hdr* hello_world = (pjsip_hdr*)pjsip_generic_string_hdr_create(
       get_pool(req),
       &hname,
       &hvalue);
+
   pjsip_msg_add_hdr(req, hello_world);
+
   send_request(req);
 }

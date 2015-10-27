@@ -34,7 +34,6 @@
  * as those licenses appear in the file LICENSE-OPENSSL.
  */
 
-#include <string>
 #include "gtest/gtest.h"
 
 #include "siptest.hpp"

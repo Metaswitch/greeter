@@ -4,11 +4,6 @@
  * Project Clearwater - IMS in the Cloud
  * Copyright (C) 2015  Metaswitch Networks Ltd
  *
- * Parts of this module were derived from GPL licensed PJSIP sample code
- * with the following copyrights.
- *   Copyright (C) 2008-2011 Teluu Inc. (http://www.teluu.com)
- *   Copyright (C) 2003-2008 Benny Prijono <benny@prijono.org>
- *
  * This program is free software: you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the
  * Free Software Foundation, either version 3 of the License, or (at your
@@ -39,6 +34,9 @@
  * as those licenses appear in the file LICENSE-OPENSSL.
  */
 
+#ifndef GREETERAPPSERVER_H__
+#define GREETERAPPSERVER_H__
+
 #include "appserver.h"
 
 class GreeterAppServer : public AppServer
@@ -55,8 +53,8 @@ public:
 class GreeterAppServerTsx : public AppServerTsx
 {
 public:
-  GreeterAppServerTsx(AppServerTsxHelper* helper);
-  virtual ~GreeterAppServerTsx();
+  using AppServerTsx::AppServerTsx;
 
   virtual void on_initial_request(pjsip_msg* req) override;
 };
+#endif

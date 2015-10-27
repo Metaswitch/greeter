@@ -4,11 +4,6 @@
  * Project Clearwater - IMS in the Cloud
  * Copyright (C) 2015  Metaswitch Networks Ltd
  *
- * Parts of this module were derived from GPL licensed PJSIP sample code
- * with the following copyrights.
- *   Copyright (C) 2008-2011 Teluu Inc. (http://www.teluu.com)
- *   Copyright (C) 2003-2008 Benny Prijono <benny@prijono.org>
- *
  * This program is free software: you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the
  * Free Software Foundation, either version 3 of the License, or (at your
@@ -39,6 +34,9 @@
  * as those licenses appear in the file LICENSE-OPENSSL.
  */
 
+#ifndef GREETERPLUGIN_H__
+#define GREETERPLUGIN_H__
+
 #include "sproutletappserver.h"
 #include "sproutletplugin.h"
 
@@ -47,13 +45,13 @@ class GreeterAppServer;
 class GreeterPlugin : public SproutletPlugin
 {
 public:
-  GreeterPlugin() {};
-  ~GreeterPlugin() {};
+  using SproutletPlugin::SproutletPlugin;
 
-  bool load(struct options& opt, std::list<Sproutlet*>& sproutlets);
-  void unload();
+  bool load(struct options& opt, std::list<Sproutlet*>& sproutlets) override;
+  void unload() override;
 
 private:
-  GreeterAppServer* _custom;
-  SproutletAppServerShim* _custom_sproutlet;
+  GreeterAppServer* _app_server;
+  SproutletAppServerShim* _sproutlet;
 };
+#endif
