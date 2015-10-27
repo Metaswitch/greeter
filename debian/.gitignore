@@ -1,0 +1,8 @@
+debhelper
+*debhelper.log
+*substvars
+changelog
+files
+/greeter-as-dbg/
+/tmp/
+

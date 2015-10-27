@@ -1,0 +1,23 @@
+Source: greeter
+Section: network
+Priority: optional
+# This field must stay as 'Project Clearwater Maintainers', as
+# clearwater-infrastructure explicitly checks for packages of this name when
+# updating
+Maintainer: Project Clearwater Maintainers <maintainers@projectclearwater.org>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.2
+Homepage: http://projectclearwater.org/
+
+Package: greeter-as
+Architecture: any
+Depends: sprout-base
+Suggests: greeter-as-dbg
+Description: greeter-as, a sample Clearwater sproutlet
+
+Package: greeter-as-dbg
+Architecture: any
+Section: debug
+Priority: extra
+Depends: greeter-as (= ${binary:Version})
+Description: Debugging symbols for greeter-as
