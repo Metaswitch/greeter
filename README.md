@@ -23,7 +23,7 @@ This initial compilation may take some time.  However, you only need to do this 
 
 ### Making changes ###
 
-Further development can all take place in the `~sprout/plugins/greeter` directory.  From there you can compile, test and package your code via the provided `Makefile`.  
+Subsequent development can all take place in the `~sprout/plugins/greeter` directory.  From there you can compile, test and package your code via the provided `Makefile`.  
 
 The most important targets are:
 
