@@ -16,7 +16,9 @@ TARGET_TEST := greeter_test
 TARGET_SOURCES := greeterappserver.cpp \
                   greeterplugin.cpp
 
-TARGET_SOURCES_TEST := baseresolver.cpp \
+TARGET_SOURCES_TEST := base_communication_monitor.cpp \
+	               baseresolver.cpp \
+		       chronosconnection.cpp \
 	               connection_tracker.cpp \
 	               custom_headers.cpp \
 		       dnscachedresolver.cpp \
@@ -30,7 +32,9 @@ TARGET_SOURCES_TEST := baseresolver.cpp \
                        greeterappserver_test.cpp \
 		       hssconnection.cpp \
 		       httpconnection.cpp \
+		       httpresolver.cpp \
 		       ifchandler.cpp \
+		       load_monitor.cpp \
 		       log.cpp \
 		       logger.cpp \
 		       mock_sas.cpp \
@@ -75,7 +79,9 @@ EXTRA_CLEANS += $(TEST_XML) \
                 *.gcov
 
 CPPFLAGS += -Wno-write-strings \
-            -ggdb3 -std=c++0x
+	    -Werror \
+            -ggdb3 -std=c++11
+
 CPPFLAGS += -I${ROOT}/include \
             -I${ROOT}/plugins/greeter/include \
             -I${ROOT}/modules/cpp-common/include \
