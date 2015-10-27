@@ -80,7 +80,8 @@ EXTRA_CLEANS += $(TEST_XML) \
 
 CPPFLAGS += -Wno-write-strings \
 	    -Werror \
-            -ggdb3 -std=c++11
+            -ggdb3
+CXXFLAGS += -std=c++11
 
 CPPFLAGS += -I${ROOT}/include \
             -I${ROOT}/plugins/greeter/include \
@@ -260,21 +261,21 @@ vg_raw: | build_test
 
 # Build rules for GMock/GTest library.
 $(OBJ_DIR_TEST)/gtest-all.o : $(GTEST_SRCS_)
-	$(CXX) $(CPPFLAGS) -I$(GTEST_DIR) -I$(GTEST_DIR)/include -I$(GMOCK_DIR) -I$(GMOCK_DIR)/include \
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I$(GTEST_DIR) -I$(GTEST_DIR)/include -I$(GMOCK_DIR) -I$(GMOCK_DIR)/include \
             -c $(GTEST_DIR)/src/gtest-all.cc -o $@
 
 $(OBJ_DIR_TEST)/gmock-all.o : $(GMOCK_SRCS_)
-	$(CXX) $(CPPFLAGS) -I$(GTEST_DIR) -I$(GTEST_DIR)/include -I$(GMOCK_DIR) -I$(GMOCK_DIR)/include \
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I$(GTEST_DIR) -I$(GTEST_DIR)/include -I$(GMOCK_DIR) -I$(GMOCK_DIR)/include \
             -c $(GMOCK_DIR)/src/gmock-all.cc -o $@
 
 # Build rules for SIPp cryptographic modules.
 $(OBJ_DIR_TEST)/md5.o : $(SIPP_DIR)/md5.c
-	$(CXX) $(CPPFLAGS) -I$(SIPP_DIR) -c $(SIPP_DIR)/md5.c -o $@
+	$(CC) $(CPPFLAGS) -I$(SIPP_DIR) -c $(SIPP_DIR)/md5.c -o $@
 
 # Build rule for our interposer.
 $(OBJ_DIR_TEST)/test_interposer.so: ${ROOT}/modules/cpp-common/test_utils/test_interposer.cpp ${ROOT}/modules/cpp-common/test_utils/test_interposer.hpp
-	$(CXX) $(CPPFLAGS) -shared -fPIC -ldl $< -o $@
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -shared -fPIC -ldl $< -o $@
 
 # Build rule for our fake zmq.
 $(OBJ_DIR_TEST)/fakezmq.so: ${ROOT}/modules/cpp-common/test_utils/fakezmq.cpp ${ROOT}/modules/cpp-common/test_utils/fakezmq.h
-	$(CXX) $(CPPFLAGS) -I$(GTEST_DIR) -I$(GTEST_DIR)/include -I$(GMOCK_DIR) -I$(GMOCK_DIR)/include -shared -fPIC -ldl $< -o $@
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I$(GTEST_DIR) -I$(GTEST_DIR)/include -I$(GMOCK_DIR) -I$(GMOCK_DIR)/include -shared -fPIC -ldl $< -o $@

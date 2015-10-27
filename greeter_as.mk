@@ -14,7 +14,8 @@ TARGET_SOURCES := greeterappserver.cpp \
 
 CPPFLAGS += -Wno-write-strings \
 	    -Werror \
-            -ggdb3 -std=c++11
+            -ggdb3
+CXXFLAGS += -std=c++11
 
 # Build location independent code for shared object
 CPPFLAGS += -fpic
