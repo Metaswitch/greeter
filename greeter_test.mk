@@ -50,8 +50,8 @@ TARGET_SOURCES_TEST := base_communication_monitor.cpp \
 		       sproutletappserver.cpp \
 		       stack.cpp \
 		       test_main.cpp \
-		       utils.cpp \
 		       uri_classifier.cpp \
+		       utils.cpp \
 		       zmq_lvc.cpp
 
 # Put the interposer in here, so it will be loaded before pjsip.
