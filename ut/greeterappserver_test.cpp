@@ -177,4 +177,7 @@ TEST_F(GreeterAppServerTest, MainlineIncomingTest)
     EXPECT_CALL(*_helper, send_request(req)).WillOnce(Return(0));
   }
   as_tsx.on_initial_request(req);
+
+  // Check that the expected header has indeed been added.
+  EXPECT_EQ("Subject: Hello world!", get_headers(req, "Subject"));
 }
