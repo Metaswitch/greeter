@@ -29,7 +29,7 @@ CPPFLAGS += -I${ROOT}/include \
 CPPFLAGS += $(shell PKG_CONFIG_PATH=${ROOT}/usr/lib/pkgconfig pkg-config --cflags libpjproject)
 
 # Add greeter/src as VPATH so build will find modules there.
-VPATH = ${ROOT}/sprout:${ROOT}/plugins/greeter/src
+VPATH = ${ROOT}/plugins/greeter/src
 
 # Production build:
 #

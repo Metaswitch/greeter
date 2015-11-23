@@ -38,10 +38,10 @@ TARGET_SOURCES_TEST := base_communication_monitor.cpp \
 		       log.cpp \
 		       logger.cpp \
 		       mock_sas.cpp \
+		       namespace_hop.cpp \
 		       notify_utils.cpp \
 		       pjutils.cpp \
 		       quiescing_manager.cpp \
-		       regstore.cpp \
 		       saslogger.cpp \
 		       sessioncase.cpp \
 		       sipresolver.cpp \
@@ -49,6 +49,7 @@ TARGET_SOURCES_TEST := base_communication_monitor.cpp \
 		       snmp_row.cpp \
 		       sproutletappserver.cpp \
 		       stack.cpp \
+		       subscriber_data_manager.cpp \
 		       test_main.cpp \
 		       uri_classifier.cpp \
 		       utils.cpp \
@@ -89,14 +90,14 @@ CPPFLAGS += -I${ROOT}/include \
             -I${ROOT}/modules/cpp-common/test_utils \
             -I${ROOT}/modules/app-servers/include \
             -I${ROOT}/modules/app-servers/test \
-            -I${ROOT}/sprout/ut \
+            -I${ROOT}/src/ut \
             -I${ROOT}/usr/include \
             -I${ROOT}/modules/rapidjson/include
 
 CPPFLAGS += $(shell PKG_CONFIG_PATH=${ROOT}/usr/lib/pkgconfig pkg-config --cflags libpjproject)
 
 # Add cpp-common/src as VPATH so build will find modules there.
-VPATH = ${ROOT}/sprout:${ROOT}/modules/cpp-common/src:${ROOT}/modules/cpp-common/test_utils:${ROOT}/modules/app-servers/test:${ROOT}/plugins/greeter/src
+VPATH = ${ROOT}/src:${ROOT}/modules/cpp-common/src:${ROOT}/modules/cpp-common/test_utils:${ROOT}/modules/app-servers/test:${ROOT}/plugins/greeter/src
 
 # Production build:
 #
@@ -157,7 +158,7 @@ GMOCK_SRCS_ := $(GMOCK_DIR)/src/*.cc $(GMOCK_HEADERS)
 # End of boilerplate
 
 COVERAGEFLAGS = $(OBJ_DIR_TEST) --object-directory=$(shell pwd) --root=${ROOT} \
-                --exclude='(^include/|^modules/gmock/|^modules/app-servers/|^modules/cpp-common/|^modules/rapidjson/|^ut/|^usr/|^sprout/|^sprout/ut/)' \
+                --exclude='(^include/|^modules/gmock/|^modules/app-servers/|^modules/cpp-common/|^modules/rapidjson/|^ut/|^usr/|^src/|^src/ut/)' \
                 --sort-percentage
 
 VGFLAGS = --suppressions=$(VG_SUPPRESS) \
