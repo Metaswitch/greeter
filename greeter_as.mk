@@ -10,8 +10,8 @@ TARGET := greeter-as.so
 TARGET_TEST := greeter-as.so_test
 
 TARGET_SOURCES := greeterappserver.cpp \
-		  greeterplugin.cpp \
-		  sproutletappserver.cpp
+                  greeterplugin.cpp \
+                  sproutletappserver.cpp
 
 CPPFLAGS += -Wno-write-strings \
 	    -Werror \

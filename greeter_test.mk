@@ -15,7 +15,7 @@ TARGET_TEST := greeter_test
 
 TARGET_SOURCES := greeterappserver.cpp \
                   greeterplugin.cpp \
-		  sproutletappserver.cpp
+                  sproutletappserver.cpp
 
 TARGET_SOURCES_TEST := base_communication_monitor.cpp \
 	               baseresolver.cpp \
