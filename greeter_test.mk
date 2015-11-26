@@ -14,7 +14,8 @@ TARGET := greeter_as.so
 TARGET_TEST := greeter_test
 
 TARGET_SOURCES := greeterappserver.cpp \
-                  greeterplugin.cpp
+                  greeterplugin.cpp \
+		  sproutletappserver.cpp
 
 TARGET_SOURCES_TEST := base_communication_monitor.cpp \
 	               baseresolver.cpp \
@@ -47,7 +48,6 @@ TARGET_SOURCES_TEST := base_communication_monitor.cpp \
 		       sipresolver.cpp \
 		       siptest.cpp \
 		       snmp_row.cpp \
-		       sproutletappserver.cpp \
 		       stack.cpp \
 		       subscriber_data_manager.cpp \
 		       test_main.cpp \
