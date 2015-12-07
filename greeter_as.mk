@@ -10,7 +10,8 @@ TARGET := greeter-as.so
 TARGET_TEST := greeter-as.so_test
 
 TARGET_SOURCES := greeterappserver.cpp \
-		  greeterplugin.cpp
+                  greeterplugin.cpp \
+                  sproutletappserver.cpp
 
 CPPFLAGS += -Wno-write-strings \
 	    -Werror \
@@ -29,7 +30,7 @@ CPPFLAGS += -I${ROOT}/include \
 CPPFLAGS += $(shell PKG_CONFIG_PATH=${ROOT}/usr/lib/pkgconfig pkg-config --cflags libpjproject)
 
 # Add greeter/src as VPATH so build will find modules there.
-VPATH = ${ROOT}/plugins/greeter/src
+VPATH = ${ROOT}/src:${ROOT}/plugins/greeter/src
 
 # Production build:
 #
