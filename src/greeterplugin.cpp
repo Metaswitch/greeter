@@ -34,8 +34,34 @@
  * as those licenses appear in the file LICENSE-OPENSSL.
  */
 
+#include "cfgoptions.h"
+#include "sproutletplugin.h"
+#include "sproutletappserver.h"
 #include "greeterappserver.h"
-#include "greeterplugin.h"
+
+class GreeterPlugin : public SproutletPlugin
+{
+public:
+  GreeterPlugin();
+  ~GreeterPlugin();
+
+  bool load(struct options& opt, std::list<Sproutlet*>& sproutlets);
+  void unload();
+
+private:
+  GreeterAppServer* _greeter;
+  SproutletAppServerShim* _greeter_sproutlet;
+};
+
+GreeterPlugin::GreeterPlugin() :
+  _greeter(NULL),
+  _greeter_sproutlet(NULL)
+{
+}
+
+GreeterPlugin::~GreeterPlugin()
+{
+}
 
 /// Export the plug-in using the magic symbol "sproutlet_plugin"
 extern "C" {
@@ -49,11 +75,12 @@ bool GreeterPlugin::load(struct options& opt, std::list<Sproutlet*>& sproutlets)
 
   TRC_STATUS("Loading Greeter!");
 
-  // Create the Sproutlet.
-  _app_server = new GreeterAppServer("greeter");
-  _sproutlet = new SproutletAppServerShim(_app_server);
+  // Create the App Server. This uses hard-coded configuration
+  std::string greeter_uri = "sip:greeter." + opt.sprout_hostname + ":5060;transport=tcp";
+  _greeter = new GreeterAppServer("greeter");
+  _greeter_sproutlet = new SproutletAppServerShim(_greeter, 5060, greeter_uri);
 
-  sproutlets.push_back(_sproutlet);
+  sproutlets.push_back(_greeter_sproutlet);
 
   return plugin_loaded;
 }
@@ -61,6 +88,6 @@ bool GreeterPlugin::load(struct options& opt, std::list<Sproutlet*>& sproutlets)
 /// Unloads the Greeter plug-in.
 void GreeterPlugin::unload()
 {
-  delete _sproutlet;
-  delete _app_server;
+  delete _greeter_sproutlet;
+  delete _greeter;
 }
