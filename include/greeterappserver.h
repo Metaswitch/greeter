@@ -42,8 +42,8 @@
 class GreeterAppServer : public AppServer
 {
 public:
-  GreeterAppServer(
-      const std::string& _service_name) : AppServer(_service_name) {}
+  GreeterAppServer(const std::string& _service_name) :
+    AppServer(_service_name) {}
 
   virtual AppServerTsx* get_app_tsx(
       AppServerTsxHelper* helper,
@@ -57,4 +57,5 @@ public:
 
   virtual void on_initial_request(pjsip_msg* req) override;
 };
+
 #endif

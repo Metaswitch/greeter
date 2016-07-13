@@ -12,6 +12,7 @@ GREETER_COMMON_SOURCES := greeterappserver.cpp \
 greeter-as.so_SOURCES := ${GREETER_COMMON_SOURCES}
 
 greeter_test_SOURCES := ${GREETER_COMMON_SOURCES} \
+                        acr.cpp \
                         base_communication_monitor.cpp \
                         baseresolver.cpp \
                         chronosconnection.cpp \
@@ -42,6 +43,7 @@ greeter_test_SOURCES := ${GREETER_COMMON_SOURCES} \
                         sessioncase.cpp \
                         sipresolver.cpp \
                         siptest.cpp \
+                        snmp_ip_row.cpp \
                         snmp_row.cpp \
                         stack.cpp \
                         subscriber_data_manager.cpp \
@@ -54,6 +56,7 @@ COMMON_CPP_FLAGS := -I${ROOT}/include \
                     -I${ROOT}/usr/include \
                     -I${ROOT}/modules/app-servers/include \
                     -I${ROOT}/modules/cpp-common/include \
+                    -I${ROOT}/modules/rapidjson/include \
                     -I${ROOT}/plugins/greeter/include
 
 greeter-as.so_CPPFLAGS := ${COMMON_CPP_FLAGS} \
