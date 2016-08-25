@@ -28,6 +28,7 @@ greeter_test_SOURCES := ${GREETER_COMMON_SOURCES} \
                         faketransport_tcp.cpp \
                         greeterappserver_test.cpp \
                         hssconnection.cpp \
+                        http_connection_pool.cpp \
                         httpconnection.cpp \
                         httpresolver.cpp \
                         ifchandler.cpp \
