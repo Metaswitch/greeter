@@ -13,6 +13,7 @@ greeter-as.so_SOURCES := ${GREETER_COMMON_SOURCES}
 
 greeter_test_SOURCES := ${GREETER_COMMON_SOURCES} \
                         acr.cpp \
+                        analyticslogger.cpp \
                         base_communication_monitor.cpp \
                         baseresolver.cpp \
                         chronosconnection.cpp \
