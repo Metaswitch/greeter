@@ -53,6 +53,7 @@ greeter_test_SOURCES := ${GREETER_COMMON_SOURCES} \
                         test_main.cpp \
                         uri_classifier.cpp \
                         utils.cpp \
+                        wildcard_utils.cpp \
                         zmq_lvc.cpp
 
 COMMON_CPP_FLAGS := -I${ROOT}/include \
