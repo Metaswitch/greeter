@@ -12,6 +12,7 @@ GREETER_COMMON_SOURCES := greeterappserver.cpp \
 greeter-as.so_SOURCES := ${GREETER_COMMON_SOURCES}
 
 greeter_test_SOURCES := ${GREETER_COMMON_SOURCES} \
+                        a_record_resolver.cpp \
                         acr.cpp \
                         analyticslogger.cpp \
                         base_communication_monitor.cpp \
@@ -32,7 +33,7 @@ greeter_test_SOURCES := ${GREETER_COMMON_SOURCES} \
                         http_connection_pool.cpp \
                         httpclient.cpp \
                         httpconnection.cpp \
-                        a_record_resolver.cpp \
+                        ifc.cpp \
                         ifchandler.cpp \
                         load_monitor.cpp \
                         log.cpp \
@@ -54,6 +55,7 @@ greeter_test_SOURCES := ${GREETER_COMMON_SOURCES} \
                         uri_classifier.cpp \
                         utils.cpp \
                         wildcard_utils.cpp \
+                        xml_utils.cpp \
                         zmq_lvc.cpp
 
 COMMON_CPP_FLAGS := -I${ROOT}/include \
