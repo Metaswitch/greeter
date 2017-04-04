@@ -3,6 +3,5 @@ debhelper
 *substvars
 changelog
 files
+/greeter-as/
 /greeter-as-dbg/
-/tmp/
-
