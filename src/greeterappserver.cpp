@@ -46,10 +46,13 @@ class GreeterAppServer;
 class GreeterAppServerTsx;
 
 AppServerTsx* GreeterAppServer::get_app_tsx(
-    AppServerTsxHelper* helper,
-    pjsip_msg* req)
+    SproutletHelper* helper,
+    pjsip_msg* req,
+    pjsip_sip_uri*& next_hop,
+    pj_pool_t* pool,
+    SAS::TrailId trail)
 {
-  return new GreeterAppServerTsx(helper);
+  return new GreeterAppServerTsx();
 }
 
 void GreeterAppServerTsx::on_initial_request(pjsip_msg* req)
