@@ -155,9 +155,10 @@ TEST_F(GreeterAppServerTest, CreateGreeterAppServer)
 
   // Create the app server with an INVITE.
   Message msg;
+  pjsip_sip_uri* uri = NULL;
   msg._method = "INVITE";
   pjsip_msg* req = parse_msg(msg.get_request());
-  GreeterAppServerTsx*mast = (GreeterAppServerTsx*)mas->get_app_tsx(_helper, req);
+  GreeterAppServerTsx*mast = (GreeterAppServerTsx*)mas->get_app_tsx(NULL, req, uri, NULL, 0);
   EXPECT_TRUE(mast != NULL);
   delete mast; mast = NULL;
 
@@ -167,7 +168,8 @@ TEST_F(GreeterAppServerTest, CreateGreeterAppServer)
 // Test the mainline case for an incoming call
 TEST_F(GreeterAppServerTest, MainlineIncomingTest)
 {
-  GreeterAppServerTsx as_tsx(_helper);
+  GreeterAppServerTsx as_tsx;
+  as_tsx.set_helper(_helper);
   Message msg;
   msg._method = "INVITE";
   pjsip_msg* req = parse_msg(msg.get_request());

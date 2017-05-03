@@ -46,8 +46,11 @@ public:
     AppServer(_service_name) {}
 
   virtual AppServerTsx* get_app_tsx(
-      AppServerTsxHelper* helper,
-      pjsip_msg* req) override;
+      SproutletHelper* helper,
+      pjsip_msg* req,
+      pjsip_sip_uri*& next_hop,
+      pj_pool_t* pool,
+      SAS::TrailId trail) override;
 };
 
 class GreeterAppServerTsx : public AppServerTsx
