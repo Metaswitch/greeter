@@ -15,6 +15,7 @@ greeter_test_SOURCES := ${GREETER_COMMON_SOURCES} \
                         a_record_resolver.cpp \
                         acr.cpp \
                         analyticslogger.cpp \
+                        associated_uris.cpp \
                         base_communication_monitor.cpp \
                         baseresolver.cpp \
                         chronosconnection.cpp \
