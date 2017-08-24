@@ -51,6 +51,8 @@ greeter_test_SOURCES := ${GREETER_COMMON_SOURCES} \
                         snmp_ip_row.cpp \
                         snmp_row.cpp \
                         stack.cpp \
+                        aor.cpp \
+                        astaire_aor_store.cpp \
                         subscriber_data_manager.cpp \
                         test_main.cpp \
                         uri_classifier.cpp \
