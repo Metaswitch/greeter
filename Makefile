@@ -15,7 +15,9 @@ greeter_test_SOURCES := ${GREETER_COMMON_SOURCES} \
                         a_record_resolver.cpp \
                         acr.cpp \
                         analyticslogger.cpp \
+                        aor.cpp \
                         associated_uris.cpp \
+                        astaire_aor_store.cpp \
                         base_communication_monitor.cpp \
                         baseresolver.cpp \
                         chronosconnection.cpp \
@@ -50,9 +52,8 @@ greeter_test_SOURCES := ${GREETER_COMMON_SOURCES} \
                         siptest.cpp \
                         snmp_ip_row.cpp \
                         snmp_row.cpp \
+                        sprout_xml_utils.cpp \
                         stack.cpp \
-                        aor.cpp \
-                        astaire_aor_store.cpp \
                         subscriber_data_manager.cpp \
                         test_main.cpp \
                         uri_classifier.cpp \
