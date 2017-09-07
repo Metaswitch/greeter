@@ -56,6 +56,7 @@ greeter_test_SOURCES := ${GREETER_COMMON_SOURCES} \
                         stack.cpp \
                         subscriber_data_manager.cpp \
                         test_main.cpp \
+                        test_interposer.cpp \
                         uri_classifier.cpp \
                         utils.cpp \
                         wildcard_utils.cpp \
@@ -110,8 +111,7 @@ VPATH = ${ROOT}/src:${ROOT}/modules/cpp-common/src:${ROOT}/plugins/greeter/src:$
 
 include ${ROOT}/build-infra/cpp.mk
 
-${BUILD_DIR}/bin/greeter_test : ${greeter_test_OBJECT_DIR}/md5.o \
-                                ${greeter_test_OBJECT_DIR}/test_interposer.so
+${BUILD_DIR}/bin/greeter_test : ${greeter_test_OBJECT_DIR}/md5.o
 
 SIPP_DIR := $(ROOT)/modules/sipp
 $(greeter_test_OBJECT_DIR)/md5.o : $(SIPP_DIR)/md5.c
