@@ -43,7 +43,6 @@ greeter_test_SOURCES := ${GREETER_COMMON_SOURCES} \
                         logger.cpp \
                         mock_sas.cpp \
                         namespace_hop.cpp \
-                        notify_utils.cpp \
                         pjutils.cpp \
                         quiescing_manager.cpp \
                         saslogger.cpp \
@@ -54,7 +53,6 @@ greeter_test_SOURCES := ${GREETER_COMMON_SOURCES} \
                         snmp_row.cpp \
                         sprout_xml_utils.cpp \
                         stack.cpp \
-                        subscriber_data_manager.cpp \
                         test_main.cpp \
                         test_interposer.cpp \
                         uri_classifier.cpp \
@@ -67,6 +65,7 @@ COMMON_CPP_FLAGS := -I${ROOT}/include \
                     -I${ROOT}/usr/include \
                     -I${ROOT}/modules/app-servers/include \
                     -I${ROOT}/modules/cpp-common/include \
+                    -I${ROOT}/modules/clearwater-s4/include \
                     -I${ROOT}/modules/rapidjson/include \
                     -I${ROOT}/plugins/greeter/include
 
@@ -107,7 +106,7 @@ greeter_test_LDFLAGS := -L${ROOT}/usr/lib \
                         $(shell net-snmp-config --netsnmp-agent-libs)
 
 
-VPATH = ${ROOT}/src:${ROOT}/modules/cpp-common/src:${ROOT}/plugins/greeter/src:${ROOT}/plugins/greeter/ut:${ROOT}/modules/cpp-common/test_utils:${ROOT}/src/ut
+VPATH = ${ROOT}/src:${ROOT}/modules/cpp-common/src:${ROOT}/modules/clearwater-s4/src:${ROOT}/plugins/greeter/src:${ROOT}/plugins/greeter/ut:${ROOT}/modules/cpp-common/test_utils:${ROOT}/src/ut
 
 include ${ROOT}/build-infra/cpp.mk
 
