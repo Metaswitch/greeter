@@ -24,6 +24,7 @@ greeter_test_SOURCES := ${GREETER_COMMON_SOURCES} \
                         connection_tracker.cpp \
                         custom_headers.cpp \
                         dnscachedresolver.cpp \
+                        static_dns_cache.cpp \
                         dnsparser.cpp \
                         fakecurl.cpp \
                         fakehssconnection.cpp \
