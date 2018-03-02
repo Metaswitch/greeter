@@ -36,7 +36,7 @@ greeter_test_SOURCES := ${GREETER_COMMON_SOURCES} \
                         hssconnection.cpp \
                         http_connection_pool.cpp \
                         httpclient.cpp \
-                        httpconnection.cpp \
+                        http_request.cpp \
                         ifc.cpp \
                         ifchandler.cpp \
                         load_monitor.cpp \
